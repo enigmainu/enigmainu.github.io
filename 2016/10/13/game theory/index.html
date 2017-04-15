@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="博弈论," />
 
 
 
@@ -89,16 +89,17 @@
 
 
 
-<meta name="description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="博弈论研究第一周目。博弈论有很多套路，一周目接触到了如下几类：Nim——最基础的博弈论问题，也是博弈论的经典模型，很多问题可以转化为Nim进行求解，解决：SG函数。Anti-Nim——Nim的拓展之一，即反Nim游戏（走最后一步输）。判断必胜条件为：当且仅当全部子SG小等1且局面SG为0，或局面SG&amp;gt;0且至少一个子SG&amp;gt;1。Nimk——Nim的拓展之一，规则仅改变为可以取1-k堆，解决">
+<meta name="keywords" content="博弈论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈论一周目学习小结">
+<meta property="og:url" content="http://yoursite.com/2016/10/13/game theory/index.html">
 <meta property="og:site_name" content="Enigma's Blog">
-<meta property="og:description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
-<meta property="og:updated_time" content="2017-04-15T02:22:53.086Z">
+<meta property="og:description" content="博弈论研究第一周目。博弈论有很多套路，一周目接触到了如下几类：Nim——最基础的博弈论问题，也是博弈论的经典模型，很多问题可以转化为Nim进行求解，解决：SG函数。Anti-Nim——Nim的拓展之一，即反Nim游戏（走最后一步输）。判断必胜条件为：当且仅当全部子SG小等1且局面SG为0，或局面SG&amp;gt;0且至少一个子SG&amp;gt;1。Nimk——Nim的拓展之一，规则仅改变为可以取1-k堆，解决">
+<meta property="og:updated_time" content="2017-04-15T11:40:03.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
+<meta name="twitter:title" content="博弈论一周目学习小结">
+<meta name="twitter:description" content="博弈论研究第一周目。博弈论有很多套路，一周目接触到了如下几类：Nim——最基础的博弈论问题，也是博弈论的经典模型，很多问题可以转化为Nim进行求解，解决：SG函数。Anti-Nim——Nim的拓展之一，即反Nim游戏（走最后一步输）。判断必胜条件为：当且仅当全部子SG小等1且局面SG为0，或局面SG&amp;gt;0且至少一个子SG&amp;gt;1。Nimk——Nim的拓展之一，规则仅改变为可以取1-k堆，解决">
 
 
 
@@ -126,19 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/13/game theory/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    分类 | Enigma's Blog
-  
-</title>
+  <title> 博弈论一周目学习小结 | Enigma's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,25 +297,180 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/13/game theory/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Enigma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enigma's Blog">
+    </span>
 
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 2 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                博弈论一周目学习小结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-13T00:00:00+08:00">
+                2016-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习总结/" itemprop="url" rel="index">
+                    <span itemprop="name">学习总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习总结/">学习总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/题目精选/">题目精选</a><span class="category-list-count">5</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>博弈论研究第一周目。<br>博弈论有很多套路，一周目接触到了如下几类：<br>Nim——最基础的博弈论问题，也是博弈论的经典模型，很多问题可以转化为Nim进行求解，解决：SG函数。<br>Anti-Nim——Nim的拓展之一，即反Nim游戏（走最后一步输）。判断必胜条件为：当且仅当全部子SG小等1且局面SG为0，或局面SG&gt;0且至少一个子SG&gt;1。<br>Nimk——Nim的拓展之一，规则仅改变为可以取1-k堆，解决思路很巧妙(想出来的人脑子有天坑):将子SG写成二进制，统计每一位上各有多少1，如果每一位个数都满足mod（k+1）==0则必败，否则必胜。证明可见第一篇随笔中的链接。<br>阶梯博弈。添加了阶梯，其余和Nim相同。解决：对奇数号阶梯上的堆进行Nim游戏。<br>找规律。SG函数只能在子游戏互不影响（即独立）的情况下可以使用。此外可以考虑手动找规律（写个暴力跑一跑看看结果找找规律之类的）。<br>分类讨论。（没啥说头，恶心）<br>树上删边游戏。对于此有若干结论：对于一棵树，它等价于一棵长度为所有该树子属长度的异或和。对于环，如果为偶则可变成一个点，若为奇则可以变成一条边。如此下来将一个图可以变成一根竹子，显然可以进行Nim游戏。<br>博弈论的题总是和异或有不解之缘，所以可以和线性基结合。又由于局面之间的转化关系图，可以变成树上的问题，dp，搜索等等。<br>总之博弈论很神奇，题目很有意思，二周目见！（如果还会有二周目</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博弈论/" rel="tag"># 博弈论</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/14/bzoj1070/" rel="next" title="「BZOJ1070」「SCOI2007」修车">
+                <i class="fa fa-chevron-left"></i> 「BZOJ1070」「SCOI2007」修车
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/12/bzoj2281/" rel="prev" title="「BZOJ2281」「SDOI2011」黑白棋">
+                「BZOJ2281」「SDOI2011」黑白棋 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -329,6 +479,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -541,6 +695,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="博弈论,组合数学,动态规划," />
 
 
 
@@ -89,15 +89,17 @@
 
 
 
-<meta name="description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Enigma's Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Test/index.html">
+<meta name="description" content="相关链接 题目传送门   解题报告 博弈论—Nimk问题。 dp再搞搞。很容易看出，该游戏的终态是每两个棋子都紧靠着。当一颗棋子移动，另一方与该棋子对应的那一刻可以立即追上，使得仍旧紧靠，最终棋子动弹不得，游戏结束。还能看出，对于白色棋子（先手），往左走没有意义。因为黑子（后手）可以紧随其上使得两者距离不变。同理黑子只往左走。（黄学长貌似提出了反例？）所以，问题可以抽象为Nim，与传统Nim只能选">
+<meta name="keywords" content="博弈论,组合数学,动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「BZOJ2281」「SDOI2011」黑白棋">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/bzoj2281/index.html">
 <meta property="og:site_name" content="Enigma's Blog">
-<meta property="og:description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
+<meta property="og:description" content="相关链接 题目传送门   解题报告 博弈论—Nimk问题。 dp再搞搞。很容易看出，该游戏的终态是每两个棋子都紧靠着。当一颗棋子移动，另一方与该棋子对应的那一刻可以立即追上，使得仍旧紧靠，最终棋子动弹不得，游戏结束。还能看出，对于白色棋子（先手），往左走没有意义。因为黑子（后手）可以紧随其上使得两者距离不变。同理黑子只往左走。（黄学长貌似提出了反例？）所以，问题可以抽象为Nim，与传统Nim只能选">
+<meta property="og:updated_time" content="2017-04-15T11:28:00.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Enigma's Blog">
-<meta name="twitter:description" content="It&apos;s the people who no one imagines anything of who do the things that no one can imagine.">
+<meta name="twitter:title" content="「BZOJ2281」「SDOI2011」黑白棋">
+<meta name="twitter:description" content="相关链接 题目传送门   解题报告 博弈论—Nimk问题。 dp再搞搞。很容易看出，该游戏的终态是每两个棋子都紧靠着。当一颗棋子移动，另一方与该棋子对应的那一刻可以立即追上，使得仍旧紧靠，最终棋子动弹不得，游戏结束。还能看出，对于白色棋子（先手），往左走没有意义。因为黑子（后手）可以紧随其上使得两者距离不变。同理黑子只往左走。（黄学长貌似提出了反例？）所以，问题可以抽象为Nim，与传统Nim只能选">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Test/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/12/bzoj2281/"/>
 
 
 
 
 
-  <title> 分类: Test | Enigma's Blog </title>
+  <title> 「BZOJ2281」「SDOI2011」黑白棋 | Enigma's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -294,47 +296,187 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Test
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/15/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-15T09:00:56+08:00"
-              content="2017-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/12/bzoj2281/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Enigma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enigma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                「BZOJ2281」「SDOI2011」黑白棋
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-12T00:00:00+08:00">
+                2016-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/题目精选/" itemprop="url" rel="index">
+                    <span itemprop="name">题目精选</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
+<p><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2281" target="_blank" rel="external">题目传送门</a> </p>
+</blockquote>
+<h3 id="解题报告"><a href="#解题报告" class="headerlink" title="解题报告"></a>解题报告</h3><blockquote>
+<p>博弈论—Nimk问题。 dp再搞搞。<br>很容易看出，该游戏的终态是每两个棋子都紧靠着。当一颗棋子移动，另一方与该棋子对应的那一刻可以立即追上，使得仍旧紧靠，最终棋子动弹不得，游戏结束。<br>还能看出，对于白色棋子（先手），往左走没有意义。因为黑子（后手）可以紧随其上使得两者距离不变。同理黑子只往左走。（黄学长貌似提出了反例？）<br>所以，问题可以抽象为Nim，与传统Nim只能选1堆不同，你可以选1-d堆。<br>这个拓展问题叫做Nimk问题。对于这种问题，我们可以证明：当将n堆棋子化为二进制，每一位上如果1的个数mod（k+1）==0 则为必败态。<br>详细证明，<a href="http://blog.csdn.net/weixinding/article/details/7321139" target="_blank" rel="external">大传送术！</a><br>最后只需要计算方案数。使用dp，dp[i][j]表示当前在二进制第i位上，总计用了j石头的方案。转移方程为：<br>$$ dp[i + 1][j + a * (k + 1) * bin[i]] += dp[i][j] * { n \choose a * (k + 1) } $$<br>注意组合数处理，取%等细节即可。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博弈论/" rel="tag"># 博弈论</a>
+          
+            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/game theory/" rel="next" title="博弈论一周目学习小结">
+                <i class="fa fa-chevron-left"></i> 博弈论一周目学习小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -342,6 +484,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -361,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon.png"
@@ -377,7 +532,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -388,7 +543,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -399,7 +554,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -433,7 +588,7 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="httpa://zyqn.tech/" title="ZYQN" target="_blank">ZYQN</a>
+                  <a href="https://zyqn.tech/" title="ZYQN" target="_blank">ZYQN</a>
                 </li>
               
             </ul>
@@ -445,6 +600,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关链接"><span class="nav-number">1.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题报告"><span class="nav-number">2.</span> <span class="nav-text">解题报告</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -554,6 +725,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
