@@ -14,8 +14,15 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/categories/OI%E7%9B%B8%E5%85%B3/</loc>
+        <lastmod>2017-04-16T04:48:50.671Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/categories/%E9%A2%98%E7%9B%AE%E7%B2%BE%E9%80%89/</loc>
-        <lastmod>2017-04-16T03:52:55.676Z</lastmod>
+        <lastmod>2017-04-16T04:58:31.326Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
