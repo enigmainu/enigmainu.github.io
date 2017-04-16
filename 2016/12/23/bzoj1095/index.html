@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动态树分治,堆," />
+  <meta name="keywords" content="点分治,堆," />
 
 
 
@@ -90,13 +90,13 @@
 
 
 <meta name="description" content="相关链接 题目传送门  解题报告 动态点分治。一开始想的是对于每个节点维护主大和次大，后来发现这实在是太NAIVE了。实际上，正解是这样的：对于每个点，维护两个堆（接下来说的都是点分树上的节点）：第一个堆，该点子树到该点父亲的距离，第二个堆，该点直接儿子的第一个堆的堆顶元素。然后我们再开一个全局堆，即答案堆，维护所有第二个堆最大和次大之和。每次询问只要把堆顶元素拿出来就可以了。为什么空间开的下呢？">
-<meta name="keywords" content="动态树分治,堆">
+<meta name="keywords" content="点分治,堆">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「BZOJ1095」「ZJOI2007」Hide 捉迷藏">
 <meta property="og:url" content="http://yoursite.com/2016/12/23/bzoj1095/index.html">
 <meta property="og:site_name" content="Enigma's Blog">
 <meta property="og:description" content="相关链接 题目传送门  解题报告 动态点分治。一开始想的是对于每个节点维护主大和次大，后来发现这实在是太NAIVE了。实际上，正解是这样的：对于每个点，维护两个堆（接下来说的都是点分树上的节点）：第一个堆，该点子树到该点父亲的距离，第二个堆，该点直接儿子的第一个堆的堆顶元素。然后我们再开一个全局堆，即答案堆，维护所有第二个堆最大和次大之和。每次询问只要把堆顶元素拿出来就可以了。为什么空间开的下呢？">
-<meta property="og:updated_time" content="2017-04-15T13:09:25.784Z">
+<meta property="og:updated_time" content="2017-04-16T01:58:50.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「BZOJ1095」「ZJOI2007」Hide 捉迷藏">
 <meta name="twitter:description" content="相关链接 题目传送门  解题报告 动态点分治。一开始想的是对于每个节点维护主大和次大，后来发现这实在是太NAIVE了。实际上，正解是这样的：对于每个点，维护两个堆（接下来说的都是点分树上的节点）：第一个堆，该点子树到该点父亲的距离，第二个堆，该点直接儿子的第一个堆的堆顶元素。然后我们再开一个全局堆，即答案堆，维护所有第二个堆最大和次大之和。每次询问只要把堆顶元素拿出来就可以了。为什么空间开的下呢？">
@@ -435,7 +435,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/动态树分治/" rel="tag"># 动态树分治</a>
+            <a href="/tags/点分治/" rel="tag"># 点分治</a>
           
             <a href="/tags/堆/" rel="tag"># 堆</a>
           
@@ -534,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -556,7 +556,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
