@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Enigma" />
 
 
 
@@ -319,7 +319,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -341,7 +341,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -419,6 +419,297 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/14/bzoj1070/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Enigma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enigma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/14/bzoj1070/" itemprop="url">
+                  「BZOJ1070」「SCOI2007」修车
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-14T00:00:00+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/题目精选/" itemprop="url" rel="index">
+                    <span itemprop="name">题目精选</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
+<p><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1070" target="_blank" rel="external">题目传送门</a></p>
+</blockquote>
+<h3 id="解题报告"><a href="#解题报告" class="headerlink" title="解题报告"></a>解题报告</h3><blockquote>
+<p>网络流——最小费用流。<br>好久没写了板子都快忘了。<br>将m个工人拆成n个点，点（i，j）表示让i工人在倒数第j辆车时去修连向这个点的车，那么显而易见代价为j*ti（后面的人要等）。</p>
+</blockquote>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 70</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 15</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1e9</span></div><div class="line"><span class="keyword">int</span> n,m,cnt=<span class="number">2</span>,ti[M][N],head[<span class="number">5005</span>],p[<span class="number">5005</span>],a[<span class="number">5005</span>],ans,d[<span class="number">5005</span>],S,T;</div><div class="line"><span class="keyword">bool</span> vis[<span class="number">5005</span>];</div><div class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;</div><div class="line"><span class="keyword">struct</span> edges&#123;</div><div class="line">    <span class="keyword">int</span> fr,to,cap,flow,cost,next;</div><div class="line">&#125;e[<span class="number">100005</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">inser</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> c,<span class="keyword">int</span> co)</span></span>&#123;</div><div class="line">    e[cnt]=(edges)&#123;u,v,c,<span class="number">0</span>,co,head[u]&#125;;head[u]=cnt++;</div><div class="line">    e[cnt]=(edges)&#123;v,u,<span class="number">0</span>,<span class="number">0</span>,-co,head[v]&#125;;head[v]=cnt++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(d));</div><div class="line">    q.push(S); d[S]=<span class="number">0</span>; a[S]=INF;</div><div class="line">    <span class="keyword">while</span>(!q.empty())&#123;</div><div class="line">        <span class="keyword">int</span> x=q.front(); q.pop(); vis[x]=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=e[i].next)&#123;</div><div class="line">            <span class="keyword">if</span>(d[e[i].to]&gt;d[x]+e[i].cost &amp;&amp; e[i].cap&gt;e[i].flow)&#123;</div><div class="line">                d[e[i].to]=d[x]+e[i].cost; p[e[i].to]=i; a[e[i].to]=min(a[x],e[i].cap-e[i].flow);</div><div class="line">                <span class="keyword">if</span>(!vis[e[i].to]) vis[e[i].to]=<span class="number">1</span>,q.push(e[i].to);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> d[T]&lt;INF;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">minc</span><span class="params">()</span></span>&#123;</div><div class="line">    ans+=a[T]*d[T];</div><div class="line">    <span class="keyword">int</span> u=T;</div><div class="line">    <span class="keyword">while</span>(u!=S)&#123;</div><div class="line">        e[p[u]].flow+=a[T];</div><div class="line">        e[p[u]^<span class="number">1</span>].flow-=a[T];</div><div class="line">        u=e[p[u]].fr;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n);</div><div class="line">    S=<span class="number">0</span>,T=n*m*<span class="number">2</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</div><div class="line">          <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ti[j][i]);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">          inser((i<span class="number">-1</span>)*n+j,T,<span class="number">1</span>,<span class="number">0</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) inser(S,n*m+i,<span class="number">1</span>,<span class="number">0</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</div><div class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</div><div class="line">          inser(n*m+i,(j<span class="number">-1</span>)*n+k,<span class="number">1</span>,k*ti[j][i]);</div><div class="line">    <span class="keyword">while</span>(spfa()) minc();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,(<span class="keyword">double</span>)ans/n);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/13/game theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Enigma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enigma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/13/game theory/" itemprop="url">
+                  博弈论一周目学习小结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-13T00:00:00+08:00">
+                2016-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习总结/" itemprop="url" rel="index">
+                    <span itemprop="name">学习总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>博弈论研究第一周目。<br>博弈论有很多套路，一周目接触到了如下几类：<br>Nim——最基础的博弈论问题，也是博弈论的经典模型，很多问题可以转化为Nim进行求解，解决：SG函数。<br>Anti-Nim——Nim的拓展之一，即反Nim游戏（走最后一步输）。判断必胜条件为：当且仅当全部子SG小等1且局面SG为0，或局面SG&gt;0且至少一个子SG&gt;1。<br>Nimk——Nim的拓展之一，规则仅改变为可以取1-k堆，解决思路很巧妙(想出来的人脑子有天坑):将子SG写成二进制，统计每一位上各有多少1，如果每一位个数都满足mod（k+1）==0则必败，否则必胜。证明可见第一篇随笔中的链接。<br>阶梯博弈。添加了阶梯，其余和Nim相同。解决：对奇数号阶梯上的堆进行Nim游戏。<br>找规律。SG函数只能在子游戏互不影响（即独立）的情况下可以使用。此外可以考虑手动找规律（写个暴力跑一跑看看结果找找规律之类的）。<br>分类讨论。（没啥说头，恶心）<br>树上删边游戏。对于此有若干结论：对于一棵树，它等价于一棵长度为所有该树子属长度的异或和。对于环，如果为偶则可变成一个点，若为奇则可以变成一条边。如此下来将一个图可以变成一根竹子，显然可以进行Nim游戏。<br>博弈论的题总是和异或有不解之缘，所以可以和线性基结合。又由于局面之间的转化关系图，可以变成树上的问题，dp，搜索等等。<br>总之博弈论很神奇，题目很有意思，二周目见！（如果还会有二周目</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
