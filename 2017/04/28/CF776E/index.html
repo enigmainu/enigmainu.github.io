@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博弈论,可持久化Trie," />
+  <meta name="keywords" content="数学,记忆化搜索,欧拉函数," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="相关链接 题目传送门  解题报告 比较神的一道题。我们现在要解决的问题是怎么求解一棵子树的SG值，首先把根删掉的情况考虑，这很好办，直接把子树的sg异或起来就好，关键是如果删除点在子树里怎么办。这里用到了一个巧妙的东西，trie。怎么会用这个呢？因为删除子树里的节点就相当于是子树里这种对应的情况再异或上外边子树的sg。但是我们不可能用一般的方法来存一棵子树里所有的sg。这个时候trie应运而生。我">
-<meta name="keywords" content="博弈论,可持久化Trie">
+<meta name="description" content="相关链接 题目传送门  题解 一开始看到这题，woc好TM吓人啊细看了一下发现，恩，这G函数不就是G(n) = n 嘛..也就是说G函数根本没卵用，起到的作用就是k=(k+1)/2,然后求k次F(n)这有点犯难了。不过我发现F(n)可以通过G函数的定义转为n减去所有它因子的f函数值然后就记忆化搜索，然后就A掉了…327ms实际上F函数就是Phi(欧拉)函数。因为gcd(i, n - i) == 1">
+<meta name="keywords" content="数学,记忆化搜索,欧拉函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「BZOJ4730」「清华集训2016」「UOJ266」 Alice和Bob又在玩游戏">
-<meta property="og:url" content="http://yoursite.com/2017/03/22/bzoj4730/index.html">
+<meta property="og:title" content="「Codeforces776E」The Holmes Children">
+<meta property="og:url" content="http://yoursite.com/2017/04/28/CF776E/index.html">
 <meta property="og:site_name" content="Enigma's Blog">
-<meta property="og:description" content="相关链接 题目传送门  解题报告 比较神的一道题。我们现在要解决的问题是怎么求解一棵子树的SG值，首先把根删掉的情况考虑，这很好办，直接把子树的sg异或起来就好，关键是如果删除点在子树里怎么办。这里用到了一个巧妙的东西，trie。怎么会用这个呢？因为删除子树里的节点就相当于是子树里这种对应的情况再异或上外边子树的sg。但是我们不可能用一般的方法来存一棵子树里所有的sg。这个时候trie应运而生。我">
-<meta property="og:updated_time" content="2017-04-16T04:44:37.560Z">
+<meta property="og:description" content="相关链接 题目传送门  题解 一开始看到这题，woc好TM吓人啊细看了一下发现，恩，这G函数不就是G(n) = n 嘛..也就是说G函数根本没卵用，起到的作用就是k=(k+1)/2,然后求k次F(n)这有点犯难了。不过我发现F(n)可以通过G函数的定义转为n减去所有它因子的f函数值然后就记忆化搜索，然后就A掉了…327ms实际上F函数就是Phi(欧拉)函数。因为gcd(i, n - i) == 1">
+<meta property="og:updated_time" content="2017-04-28T08:21:14.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「BZOJ4730」「清华集训2016」「UOJ266」 Alice和Bob又在玩游戏">
-<meta name="twitter:description" content="相关链接 题目传送门  解题报告 比较神的一道题。我们现在要解决的问题是怎么求解一棵子树的SG值，首先把根删掉的情况考虑，这很好办，直接把子树的sg异或起来就好，关键是如果删除点在子树里怎么办。这里用到了一个巧妙的东西，trie。怎么会用这个呢？因为删除子树里的节点就相当于是子树里这种对应的情况再异或上外边子树的sg。但是我们不可能用一般的方法来存一棵子树里所有的sg。这个时候trie应运而生。我">
+<meta name="twitter:title" content="「Codeforces776E」The Holmes Children">
+<meta name="twitter:description" content="相关链接 题目传送门  题解 一开始看到这题，woc好TM吓人啊细看了一下发现，恩，这G函数不就是G(n) = n 嘛..也就是说G函数根本没卵用，起到的作用就是k=(k+1)/2,然后求k次F(n)这有点犯难了。不过我发现F(n)可以通过G函数的定义转为n减去所有它因子的f函数值然后就记忆化搜索，然后就A掉了…327ms实际上F函数就是Phi(欧拉)函数。因为gcd(i, n - i) == 1">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/22/bzoj4730/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/28/CF776E/"/>
 
 
 
 
 
-  <title> 「BZOJ4730」「清华集训2016」「UOJ266」 Alice和Bob又在玩游戏 | Enigma's Blog </title>
+  <title> 「Codeforces776E」The Holmes Children | Enigma's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -418,7 +418,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关链接"><span class="nav-number">1.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题报告"><span class="nav-number">2.</span> <span class="nav-text">解题报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关链接"><span class="nav-number">1.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#327ms的Code"><span class="nav-number">3.</span> <span class="nav-text">327ms的Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15ms的Code"><span class="nav-number">4.</span> <span class="nav-text">15ms的Code</span></a></li></ol></div>
             
 
           </div>
@@ -454,7 +454,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/bzoj4730/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/CF776E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Enigma">
@@ -475,7 +475,7 @@
             
             
               
-                「BZOJ4730」「清华集训2016」「UOJ266」 Alice和Bob又在玩游戏
+                「Codeforces776E」The Holmes Children
               
             
           </h1>
@@ -490,8 +490,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">
-                2017-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T00:00:00+08:00">
+                2017-04-28
               </time>
             
 
@@ -549,12 +549,13 @@
 
       
         <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
-<p><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=4730" target="_blank" rel="external">题目传送门</a></p>
+<p><a href="http://codeforces.com/contest/776/problem/E" target="_blank" rel="external">题目传送门</a></p>
 </blockquote>
-<h3 id="解题报告"><a href="#解题报告" class="headerlink" title="解题报告"></a>解题报告</h3><blockquote>
-<p>比较神的一道题。<br>我们现在要解决的问题是怎么求解一棵子树的SG值，首先把根删掉的情况考虑，这很好办，直接把子树的sg异或起来就好，关键是如果删除点在子树里怎么办。<br>这里用到了一个巧妙的东西，trie。怎么会用这个呢？因为删除子树里的节点就相当于是子树里这种对应的情况再异或上外边子树的sg。但是我们不可能用一般的方法来存一棵子树里所有的sg。这个时候trie应运而生。我们处理子树之后，把它合并上来，就能得到当前节点的所有拓展局面的sg了。这里注意，合并子树前要先在子树上打一个tag（因为它是要异或上外面所有子树sg的）。<br>算法很清晰了，dfs下去，合并上来。这里的trie还要打tag。所有细节就这么多。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><blockquote>
+<p>一开始看到这题，woc好TM吓人啊<br>细看了一下发现，恩，这G函数不就是G(n) = n 嘛..<br>也就是说G函数根本没卵用，起到的作用就是k=(k+1)/2,然后求k次F(n)<br>这有点犯难了。不过我发现F(n)可以通过G函数的定义转为n减去所有它因子的f函数值<br>然后就记忆化搜索，然后就A掉了…327ms<br>实际上F函数就是Phi(欧拉)函数。因为gcd(i, n - i) == 1 -&gt; gcd(i, n) == 1<br>那就是欧拉函数的定义..直接暴力就好了…15ms</p>
 </blockquote>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100005</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">       LL x=<span class="number">0</span>,f=<span class="number">1</span>; <span class="keyword">char</span> a=getchar();</div><div class="line">       <span class="keyword">while</span>(a&lt;<span class="string">'0'</span> || a&gt;<span class="string">'9'</span>) &#123;<span class="keyword">if</span>(a==<span class="string">'-'</span>) f=<span class="number">-1</span>; a=getchar();&#125;</div><div class="line">       <span class="keyword">while</span>(a&gt;=<span class="string">'0'</span> &amp;&amp; a&lt;=<span class="string">'9'</span>) x=x*<span class="number">10</span>+a-<span class="string">'0'</span>,a=getchar();</div><div class="line">       <span class="keyword">return</span> x*f;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">int</span> n,m,T,bin[<span class="number">25</span>],head[N],cnt,id,tag[N*<span class="number">20</span>],rt[N],ls[N*<span class="number">20</span>],rs[N*<span class="number">20</span>],sg[N],sz[N*<span class="number">20</span>];</div><div class="line"><span class="keyword">bool</span> vis[N];</div><div class="line"> </div><div class="line"><span class="keyword">struct</span> edges&#123;</div><div class="line">    <span class="keyword">int</span> to,next;</div><div class="line">&#125;e[<span class="number">2</span>*N];</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> u=read(),v=read();</div><div class="line">    e[++cnt]=(edges)&#123;v,head[u]&#125;;head[u]=cnt;</div><div class="line">    e[++cnt]=(edges)&#123;u,head[v]&#125;;head[v]=cnt;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">    bin[<span class="number">0</span>]=<span class="number">1</span>; <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">19</span>;i++) bin[i]=bin[i<span class="number">-1</span>]&lt;&lt;<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> level)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(!tag[k]) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span>(bin[level<span class="number">-1</span>]&amp;tag[k]) swap(ls[k],rs[k]);</div><div class="line">    tag[ls[k]]^=tag[k]; tag[rs[k]]^=tag[k];</div><div class="line">    tag[k]=<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) head[i]=sg[i]=rt[i]=<span class="number">0</span>,vis[i]=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=id;i++) tag[i]=ls[i]=rs[i]=sz[i]=<span class="number">0</span>;</div><div class="line">    cnt=<span class="number">1</span>; id=<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span>&amp; k,<span class="keyword">int</span> x,<span class="keyword">int</span> level)</span></span>&#123; <span class="comment">// 0 is on the left</span></div><div class="line">    k=++id; sz[k]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span>(!level) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span>(x&amp;bin[level<span class="number">-1</span>]) ins(rs[k],x,level<span class="number">-1</span>);</div><div class="line">    <span class="keyword">else</span> ins(ls[k],x,level<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> level)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(!x || !y) <span class="keyword">return</span> x|y;</div><div class="line">    pushdown(x,level); pushdown(y,level);</div><div class="line">    ls[x]=merge(ls[x],ls[y],level<span class="number">-1</span>); rs[x]=merge(rs[x],rs[y],level<span class="number">-1</span>);</div><div class="line">    sz[x]=sz[ls[x]]+sz[rs[x]]+(level?<span class="number">0</span>:<span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> fa)</span></span>&#123;</div><div class="line">    vis[x]=<span class="number">1</span>; <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=e[i].next)&#123;</div><div class="line">        <span class="keyword">if</span>(fa==e[i].to) <span class="keyword">continue</span>;</div><div class="line">        dfs(e[i].to,x); t^=sg[e[i].to];</div><div class="line">    &#125;</div><div class="line">    ins(rt[x],t,<span class="number">19</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[x];i;i=e[i].next)&#123;</div><div class="line">        <span class="keyword">if</span>(fa==e[i].to) <span class="keyword">continue</span>;</div><div class="line">        tag[rt[e[i].to]]^=t^sg[e[i].to];</div><div class="line">        rt[x]=merge(rt[x],rt[e[i].to],<span class="number">19</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> now=rt[x],i=<span class="number">19</span>;i;i--)&#123; <span class="comment">// i is the i th digit int binary system</span></div><div class="line">        pushdown(now,i);</div><div class="line">        <span class="keyword">if</span>(sz[ls[now]]&lt;bin[i<span class="number">-1</span>]) now=ls[now];</div><div class="line">        <span class="keyword">else</span> sg[x]|=bin[i<span class="number">-1</span>],now=rs[now];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">    n=read(); m=read(); <span class="keyword">int</span> ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++) insert();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">if</span>(!vis[i]) dfs(i,<span class="number">0</span>),ans^=sg[i];</div><div class="line">    <span class="built_in">puts</span>(ans?<span class="string">"Alice"</span>:<span class="string">"Bob"</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    init(); T=read();</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        solve();</div><div class="line">        reset();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="327ms的Code"><a href="#327ms的Code" class="headerlink" title="327ms的Code"></a>327ms的Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">	LL x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> a = getchar();</div><div class="line">	<span class="keyword">while</span>(a &lt; <span class="string">'0'</span> || a &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(a == <span class="string">'-'</span>) f = <span class="number">-1</span>; a = getchar(); &#125;</div><div class="line">	<span class="keyword">while</span>(a &gt;= <span class="string">'0'</span> &amp;&amp; a &lt;= <span class="string">'9'</span>) x = x * <span class="number">10</span> + a - <span class="string">'0'</span>, a = getchar();</div><div class="line">	<span class="keyword">return</span> x * f;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">map</span>&lt;LL, LL&gt; F;</div><div class="line">LL n, k;</div><div class="line"></div><div class="line"><span class="function">LL <span class="title">f</span><span class="params">(LL x)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(F[x]) <span class="keyword">return</span> F[x];</div><div class="line">	F[x] = x;</div><div class="line">	LL q = <span class="built_in">sqrt</span>(x);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = q ; i &gt; <span class="number">1</span>; i--)</div><div class="line">	<span class="keyword">if</span>((x % i) == <span class="number">0</span>) F[x] -= f(i) + f(x / i);</div><div class="line">	F[x] += q * q == x ? f(q) : <span class="number">0</span>;</div><div class="line">	F[x]--;</div><div class="line">	<span class="keyword">return</span> F[x]; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	n = read(); k = read();</div><div class="line">	F[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(LL i = (k + <span class="number">1</span>) / <span class="number">2</span>; i &amp;&amp; (n &gt; <span class="number">1</span>); i--) n = f(n);</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; n % mod;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="15ms的Code"><a href="#15ms的Code" class="headerlink" title="15ms的Code"></a>15ms的Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">	LL x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> a = getchar();</div><div class="line">	<span class="keyword">while</span>(a &lt; <span class="string">'0'</span> || a &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(a == <span class="string">'-'</span>) f = <span class="number">-1</span>; a = getchar(); &#125;</div><div class="line">	<span class="keyword">while</span>(a &gt;= <span class="string">'0'</span> &amp;&amp; a &lt;= <span class="string">'9'</span>) x = x * <span class="number">10</span> + a - <span class="string">'0'</span>, a = getchar();</div><div class="line">	<span class="keyword">return</span> x * f;</div><div class="line">&#125;</div><div class="line"></div><div class="line">LL n, k;</div><div class="line"></div><div class="line"><span class="function">LL <span class="title">phi</span><span class="params">(LL x)</span> </span>&#123;</div><div class="line">	LL ret = x;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; <span class="number">1L</span>L * i * i &lt;= x; i++)</div><div class="line">		<span class="keyword">if</span>(x % i == <span class="number">0</span>) &#123;</div><div class="line">			x /= i;</div><div class="line">			<span class="keyword">while</span>(x % i == <span class="number">0</span>) x /= i;</div><div class="line">			ret = ret / i * (i - <span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">	<span class="keyword">if</span>(x - <span class="number">1</span>) ret = ret / x * (x - <span class="number">1</span>);</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	n = read(); k = read();</div><div class="line">	<span class="keyword">for</span>(LL i = (k + <span class="number">1</span>) / <span class="number">2</span>; i &amp;&amp; (n &gt; <span class="number">1</span>); i--) n = phi(n);</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; n % mod;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -583,9 +584,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博弈论/" rel="tag"># 博弈论</a>
+            <a href="/tags/数学/" rel="tag"># 数学</a>
           
-            <a href="/tags/可持久化Trie/" rel="tag"># 可持久化Trie</a>
+            <a href="/tags/记忆化搜索/" rel="tag"># 记忆化搜索</a>
+          
+            <a href="/tags/欧拉函数/" rel="tag"># 欧拉函数</a>
           
         </div>
       
@@ -598,18 +601,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/07/scoi2017jyj/" rel="next" title="SCOI2017酱油记">
-                <i class="fa fa-chevron-left"></i> SCOI2017酱油记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/21/bzoj4520/" rel="prev" title="「BZOJ4520」「CQOI2016」K远点对">
-                「BZOJ4520」「CQOI2016」K远点对 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/26/CF750E/" rel="prev" title="「Codeforces750E」New Year and Old Subsequence">
+                「Codeforces750E」New Year and Old Subsequence <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

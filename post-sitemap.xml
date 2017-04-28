@@ -8,7 +8,15 @@
 
     <url>
         <loc>http://yoursite.com/2017/04/18/April_plan/</loc>
-        <lastmod>2017-04-27T13:46:52.984Z</lastmod>
+        <lastmod>2017-04-28T12:03:25.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/04/28/CF776E/</loc>
+        <lastmod>2017-04-28T08:21:14.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
