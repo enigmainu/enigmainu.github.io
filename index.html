@@ -375,7 +375,7 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://zyqn.tech/" title="ZYQN" target="_blank">ZYQN</a>
+                  <a href="https://Qizy.tech/" title="Qizy" target="_blank">Qizy</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
@@ -427,154 +427,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/23/CF809C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Enigma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Enigma's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/23/CF809C/" itemprop="url">
-                  「Codeforces809C」Find a car
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T00:00:00+08:00">
-                2017-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/题目精选/" itemprop="url" rel="index">
-                    <span itemprop="name">题目精选</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
-<p><a href="http://codeforces.com/contest/809/problem/C" target="_blank" rel="external">题目传送门</a></p>
-</blockquote>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><blockquote>
-<p>首先，题解告诉我们<br>(i,j)的值是(i - 1) ^ (j - 1) + 1 (没错，就是有这种操作)<br>然后题解能给我们的信息就结束了。(不知道是哪国写的英文题解，完全看不懂)所以最后还是参照大神的代码终于看懂了。<br>通过这个规律我们能发现一些有趣的性质:<br>1.我们求前缀矩形的时候长宽可以交换<br>2.当我们的一边(假如说是列)为$2^n$的时候，当前行数小等于这个整次幂的时候，把该行重新排序，一定是1 - $2 ^ n$<br>3.如果当前行数大于的时候，实际上也就是多这个整次幂，可以单独拿出来，那就没什么两样了<br>所以，照着做就可以了。</p>
-</blockquote>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">	LL x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> a = getchar();</div><div class="line">	<span class="keyword">while</span>(a &lt; <span class="string">'0'</span> || a &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(a == <span class="string">'-'</span>) f = <span class="number">-1</span>; a = getchar(); &#125;</div><div class="line">	<span class="keyword">while</span>(a &gt;= <span class="string">'0'</span> &amp;&amp; a &lt;= <span class="string">'9'</span>) x = x * <span class="number">10</span> + a - <span class="string">'0'</span>, a = getchar();</div><div class="line">	<span class="keyword">return</span> x * f;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> k, <span class="keyword">int</span> add)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(x &gt; y) swap(x, y);</div><div class="line">	<span class="keyword">if</span>(!x) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(k &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> z = <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - __builtin_clz(y)), kk = min(k, z), ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(x &lt; z) &#123;</div><div class="line">		ret += (((<span class="number">1L</span>L * (kk + <span class="number">1</span>) * kk / <span class="number">2</span> % mod) * x) % mod + ((<span class="number">1L</span>L * kk * add ) % mod * x) % mod) % mod;</div><div class="line">		(ret += solve(x, y - z, k - z, add + z)) %= mod;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		ret += (((<span class="number">1L</span>L * (kk + <span class="number">1</span>) * kk / <span class="number">2</span> % mod) * z) % mod + ((<span class="number">1L</span>L * kk * add ) % mod * z) % mod) % mod;</div><div class="line">		(ret += solve(z, y - z, k - z, add + z)) %= mod;</div><div class="line">		(ret += solve(x - z, z, k - z, add + z)) %= mod;</div><div class="line">		(ret += solve(x - z, y - z, k, add)) %= mod;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> q, x1, x2, y1, y2, k, ans;</div><div class="line">	q = read();</div><div class="line">	<span class="keyword">while</span>(q--) &#123;</div><div class="line">		x1 = read() - <span class="number">1</span>; y1 = read() - <span class="number">1</span>;</div><div class="line">		x2 = read(); y2 = read();</div><div class="line">		k = read();</div><div class="line">		ans = <span class="number">0</span>;</div><div class="line">		(ans += (solve(x1, y1, k, <span class="number">0</span>) + solve(x2, y2, k, <span class="number">0</span>)) % mod) %= mod;</div><div class="line">		(ans -= (solve(x1, y2, k, <span class="number">0</span>) + solve(x2, y1, k, <span class="number">0</span>)) % mod) %= mod;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (ans + mod) % mod);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
       
 
@@ -691,6 +543,154 @@
 <p>很简单的二分。(深夜场智商–<br>对于一个区间，我们询问mid和mid + 1，然后这显然满足二分性质<br>找到第一个之后去第一个左右找，就能找到第二个</p>
 </blockquote>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100000</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">	LL x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> a = getchar();</div><div class="line">	<span class="keyword">while</span>(a &lt; <span class="string">'0'</span> || a &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(a == <span class="string">'-'</span>) f = <span class="number">-1</span>; a = getchar(); &#125;</div><div class="line">	<span class="keyword">while</span>(a &gt;= <span class="string">'0'</span> &amp;&amp; a &lt;= <span class="string">'9'</span>) x = x * <span class="number">10</span> + a - <span class="string">'0'</span>, a = getchar();</div><div class="line">	<span class="keyword">return</span> x * f;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, k, x, y; </div><div class="line"><span class="keyword">char</span> s[<span class="number">5</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"1 %d %d\n"</span>, a, a + <span class="number">1</span>);</div><div class="line">	fflush(<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</div><div class="line">	<span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">'N'</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(l &gt; r) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(l &lt; r) &#123;</div><div class="line">		<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(check(mid)) r = mid;</div><div class="line">		<span class="keyword">else</span> l = mid + <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> l;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	n = read(); k = read();</div><div class="line">	x = solve(<span class="number">1</span>, n);</div><div class="line">	y = solve(<span class="number">1</span>, x - <span class="number">1</span>);</div><div class="line">	y = y &amp;&amp; (y &lt; x - <span class="number">1</span> || check(y)) ? y : solve(x + <span class="number">1</span>, n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"2 %d %d\n"</span>, x ,y);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/23/CF809C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Enigma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enigma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/23/CF809C/" itemprop="url">
+                  「Codeforces809C」Find a car
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T00:00:00+08:00">
+                2017-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/题目精选/" itemprop="url" rel="index">
+                    <span itemprop="name">题目精选</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
+<p><a href="http://codeforces.com/contest/809/problem/C" target="_blank" rel="external">题目传送门</a></p>
+</blockquote>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><blockquote>
+<p>首先，题解告诉我们<br>(i,j)的值是(i - 1) ^ (j - 1) + 1 (没错，就是有这种操作)<br>然后题解能给我们的信息就结束了。(不知道是哪国写的英文题解，完全看不懂)所以最后还是参照大神的代码终于看懂了。<br>通过这个规律我们能发现一些有趣的性质:<br>1.我们求前缀矩形的时候长宽可以交换<br>2.当我们的一边(假如说是列)为$2^n$的时候，当前行数小等于这个整次幂的时候，把该行重新排序，一定是1 - $2 ^ n$<br>3.如果当前行数大于的时候，实际上也就是多这个整次幂，可以单独拿出来，那就没什么两样了<br>所以，照着做就可以了。</p>
+</blockquote>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">	LL x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> a = getchar();</div><div class="line">	<span class="keyword">while</span>(a &lt; <span class="string">'0'</span> || a &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(a == <span class="string">'-'</span>) f = <span class="number">-1</span>; a = getchar(); &#125;</div><div class="line">	<span class="keyword">while</span>(a &gt;= <span class="string">'0'</span> &amp;&amp; a &lt;= <span class="string">'9'</span>) x = x * <span class="number">10</span> + a - <span class="string">'0'</span>, a = getchar();</div><div class="line">	<span class="keyword">return</span> x * f;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> k, <span class="keyword">int</span> add)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span>(x &gt; y) swap(x, y);</div><div class="line">	<span class="keyword">if</span>(!x) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(k &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> z = <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - __builtin_clz(y)), kk = min(k, z), ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(x &lt; z) &#123;</div><div class="line">		ret += (((<span class="number">1L</span>L * (kk + <span class="number">1</span>) * kk / <span class="number">2</span> % mod) * x) % mod + ((<span class="number">1L</span>L * kk * add ) % mod * x) % mod) % mod;</div><div class="line">		(ret += solve(x, y - z, k - z, add + z)) %= mod;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		ret += (((<span class="number">1L</span>L * (kk + <span class="number">1</span>) * kk / <span class="number">2</span> % mod) * z) % mod + ((<span class="number">1L</span>L * kk * add ) % mod * z) % mod) % mod;</div><div class="line">		(ret += solve(z, y - z, k - z, add + z)) %= mod;</div><div class="line">		(ret += solve(x - z, z, k - z, add + z)) %= mod;</div><div class="line">		(ret += solve(x - z, y - z, k, add)) %= mod;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> q, x1, x2, y1, y2, k, ans;</div><div class="line">	q = read();</div><div class="line">	<span class="keyword">while</span>(q--) &#123;</div><div class="line">		x1 = read() - <span class="number">1</span>; y1 = read() - <span class="number">1</span>;</div><div class="line">		x2 = read(); y2 = read();</div><div class="line">		k = read();</div><div class="line">		ans = <span class="number">0</span>;</div><div class="line">		(ans += (solve(x1, y1, k, <span class="number">0</span>) + solve(x2, y2, k, <span class="number">0</span>)) % mod) %= mod;</div><div class="line">		(ans -= (solve(x1, y2, k, <span class="number">0</span>) + solve(x2, y1, k, <span class="number">0</span>)) % mod) %= mod;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (ans + mod) % mod);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
